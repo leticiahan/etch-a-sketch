@@ -17,7 +17,7 @@ $(document).ready(function() {
 
   // create hover effect: color-black;
   $('.square').hover(function() {
-    $(this).css({'background-color': '#000'});
+    $(this).addClass('black');
   })
 
 });
