@@ -3,11 +3,32 @@
 <head>
   <title>Etch-A-Sketch</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="script.js"></script>
 </head>
 <body>
+  <div class="header">
+    <h1>Virtual Etch-A-Sketch</h1>
+  </div>
+  <div class="input">
+    <button class="clear-btn">Clear</button>
+  </div>
+  <div>
+    <form class="grid">
+      <label for="new-grid">Grid Size</label>
+      <input type="text" placeholder="16" name="new-grid" />
+      <button class="new-grid-btn">Set</button>
+    </form>
+  </div>
+  <div>
+    <form class="color">
+      <input type="radio" name="radio" value="black" checked/>
+      <input type="radio" name="radio" value="rainbow" />
+      <input type="text" name="choice" placeholder="#d9534f" />
+      <button class="set-color" name="set-color">Set My Own Color</button>
+    </form>
+  </div>
   <div class="grid">
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
