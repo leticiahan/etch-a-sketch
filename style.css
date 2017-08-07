@@ -1,11 +1,12 @@
 /* TO DO :
-1. add red border around the grid
 2. add footer
 3. make the background of the grid different??
 4. make the buttons work
 5. add gradient to black
-6. make color selections as buttons
 7. make the css better, including reset css
+8. in js, lift pen mode
+9. change width of grid size input
+10. add rainbow
 */
 
 
@@ -29,11 +30,7 @@ body {
 button {
   font-family: 'Unkempt', cursive;
   font-size: 1.7em;
-  border-radius: 100%;
-  border: 1px solid black;
-  display: block;
   background-color: #fff;
-  margin: 10px auto;
 }
 
 .header {
@@ -44,22 +41,22 @@ button {
   margin-top: 1em;
 }
 
-.clear, .size {
+.clean, .size {
   width: 22%;
   display: inline-block;
   text-align: center;
-}
-
-.clear-btn {
-  padding: 1em 0.6em; /*30px 16px*/
-}
-
-form {
-
-}
-
-.size, .clear {
   vertical-align: bottom;
+}
+
+.btn {
+  border-radius: 100%;
+  border: 1px solid black;
+  display: block;
+  margin: 10px auto;
+}
+
+.clear {
+  padding: 1em 0.6em; /*30px 16px*/
 }
 
 label {
@@ -68,24 +65,23 @@ label {
   padding-bottom: 3px;
 }
 
-.size-btn {
+.set {
   padding: 1em;
 }
 
 .colors {
-
+  width: 60%;
+  margin: 30px auto 5px;
 }
 
-.default {
-  padding: 1em 0.5em;
+.default, .random {
+  padding: 10px 15px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 0 5px;
 }
 
-.random {
-  font-size: 1.3em;
-  padding: 1.5em 0.5em;
-}
-
-input[type=text]{
+input[type=text] {
   font-size: 1em;
   font-family: 'Inconsolata', monospace;
   display: block;
@@ -95,9 +91,19 @@ input[type=text]{
   width: 15%;
 }
 
+input[name=choice] {
+  display: inline-block;
+  width: 25%;
+  margin: 0 1% 0 5%;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
 .set-color {
   font-size: 1.1em;
   padding: 1.3em 0.3em;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .screen {
