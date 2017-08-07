@@ -5,7 +5,6 @@
 5. add gradient to black
 7. make the css better, including reset css
 8. in js, lift pen mode
-9. change width of grid size input
 */
 
 
@@ -14,16 +13,12 @@
   padding: 0;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
     background: #fff;
     width: 100%;
     /*color: #f1251a; */
     font-family: 'Unkempt', cursive;
-    font-size: 1em;
+    font-size: 16px;
 }
 
 button {
@@ -86,10 +81,10 @@ label {
 }
 
 .default, .random, .rainbow {
-  padding: 10px 15px;
+  padding: 0.6em 0.7em;
   border: 1px solid black;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 0.6em;
   font-size: 1.4em;
 }
 
@@ -117,6 +112,7 @@ input[name=choice] {
   width: 25%;
   margin-right: 5px;
   border-bottom: 2px solid black;
+  font-size: 1.1em;
 }
 
 .set-color {
@@ -198,3 +194,10 @@ input[name=choice] {
 /* -- for styling radio buttons --
 https://codepen.io/AngelaVelasquez/pen/Eypnq
 */
+
+
+@media (max-width: 920px) {
+  body {
+    font-size: 14px;
+  }
+}
