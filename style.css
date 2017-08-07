@@ -5,6 +5,7 @@
 4. make the buttons work
 5. add gradient to black
 6. make color selections as buttons
+7. make the css better, including reset css
 */
 
 
@@ -27,9 +28,12 @@ body {
 
 button {
   font-family: 'Unkempt', cursive;
-  font-size: 2em;
+  font-size: 1.7em;
   border-radius: 100%;
-  border: none;
+  border: 1px solid black;
+  display: block;
+  background-color: #fff;
+  margin: 10px auto;
 }
 
 .header {
@@ -43,10 +47,63 @@ button {
 .clear, .size, .colors {
   width: 30%;
   display: inline-block;
+  text-align: center;
 }
 
 .clear-btn {
   padding: 1em 0.6em; /*30px 16px*/
+}
+
+form {
+
+}
+
+.size {
+}
+
+label {
+  display: block;
+  font-size: 2em;
+  padding-bottom: 3px;
+}
+
+.size-btn {
+  padding: 1em;
+}
+
+.colors {
+
+}
+
+.default {
+  padding: 1em 0.5em;
+}
+
+.random {
+  font-size: 1.3em;
+  padding: 1.5em 0.5em;
+}
+
+input[type=text]{
+  font-size: 1em;
+  font-family: 'Inconsolata', monospace;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px 0;
+}
+
+input[name=new-grid] {
+  width: 15%;
+}
+
+input[name=choice] {
+  width: 40%;
+}
+
+.set-color {
+  font-size: 1.1em;
+  padding: 1.3em 0.3em;
 }
 
 .grid {
@@ -79,8 +136,9 @@ button {
 }
 
 .black {
-  background-color: black;
+  background-color: #000;
 }
+
 /* -- for styling radio buttons --
 https://codepen.io/AngelaVelasquez/pen/Eypnq
 */

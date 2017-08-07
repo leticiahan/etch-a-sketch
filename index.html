@@ -3,7 +3,7 @@
 <head>
   <title>Etch-A-Sketch</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Fredericka+the+Great|Love+Ya+Like+A+Sister|Unkempt:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Unkempt:400,700|Inconsolata" rel="stylesheet">
 </head>
 <body>
   <div class="header">
@@ -21,10 +21,10 @@
   </div>
   <div class="colors">
     <form>
-      <input type="radio" name="radio" value="black" checked/>Black<br />
-      <input type="radio" name="radio" value="rainbow" />Random<br />
+      <button class="default" name="default">Black</button>
+      <button class="random" name="random">Random</button>
       <input type="text" name="choice" placeholder="#d9534f" />
-      <button class="set-color" name="set-color">Set My Own Color</button>
+      <button class="set-color" name="set-color">Set My<br />Own Color</button>
     </form>
   </div>
   <div class="grid">
