@@ -44,8 +44,8 @@ button {
   margin-top: 1em;
 }
 
-.clear, .size, .colors {
-  width: 30%;
+.clear, .size {
+  width: 22%;
   display: inline-block;
   text-align: center;
 }
@@ -58,7 +58,8 @@ form {
 
 }
 
-.size {
+.size, .clear {
+  vertical-align: bottom;
 }
 
 label {
@@ -91,14 +92,7 @@ input[type=text]{
   margin: 0 auto;
   text-align: center;
   padding: 5px 0;
-}
-
-input[name=new-grid] {
   width: 15%;
-}
-
-input[name=choice] {
-  width: 40%;
 }
 
 .set-color {
@@ -110,8 +104,11 @@ input[name=choice] {
   width: 85%;
   margin: 0 auto;
   background-color: #F44336;
-  padding: 90px 0 120px;
+  /*padding: 90px 0 120px;*/
   border-radius: 2%;
+  padding-top: 90px;
+  padding-bottom: 25px;
+  text-align: center;
 }
 
 .grid {
@@ -120,6 +117,8 @@ input[name=choice] {
     margin: 0 auto;
     /*background-color: #fff;*/
     z-index: 99;
+    display: inline-block;
+    padding-bottom: 120px;
 }
 
 .row {
