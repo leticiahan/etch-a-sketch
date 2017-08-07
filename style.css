@@ -6,7 +6,6 @@
 7. make the css better, including reset css
 8. in js, lift pen mode
 9. change width of grid size input
-10. add rainbow
 */
 
 
@@ -41,6 +40,11 @@ button {
   margin-top: 1em;
 }
 
+.container {
+  max-width: 973px;
+  margin: 0 auto;
+}
+
 .clean, .size {
   width: 22%;
   display: inline-block;
@@ -69,6 +73,13 @@ label {
   padding: 1em;
 }
 
+
+.half {
+  width: 48%;
+  display: inline-block;
+  margin: 0 auto;
+}
+
 .colors {
   width: 80%;
   margin: 30px auto 5px;
@@ -78,8 +89,12 @@ label {
   padding: 10px 15px;
   border: 1px solid black;
   display: inline-block;
-  margin: 0 5px;
+  margin-right: 10px;
   font-size: 1.4em;
+}
+
+.colors form {
+  text-align: right;
 }
 
 input[type=text] {
@@ -89,14 +104,18 @@ input[type=text] {
   margin: 0 auto;
   text-align: center;
   padding: 5px 0;
-  width: 15%;
+  width: 20%;
+  border: none;
+}
+
+input[type=text]:focus {
+  outline: none;
 }
 
 input[name=choice] {
   display: inline-block;
-  width: 20%;
-  margin: 0 2% 0 10%;
-  border: none;
+  width: 25%;
+  margin-right: 5px;
   border-bottom: 2px solid black;
 }
 
