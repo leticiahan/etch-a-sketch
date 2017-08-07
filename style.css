@@ -21,6 +21,10 @@ body {
     font-size: 16px;
 }
 
+h6 {
+  font-size: 14px;
+}
+
 button {
   font-family: 'Unkempt', cursive;
   font-size: 1.7em;
@@ -124,7 +128,7 @@ input[name=choice] {
 
 .screen {
   width: 85%;
-  margin: 0 auto;
+  margin: 0 auto 100px;
   background-color: #F44336;
   /*padding: 90px 0 120px;*/
   border-radius: 2%;
@@ -187,6 +191,19 @@ input[name=choice] {
   border-bottom-right-radius: 50%;
 }
 
+.footer {
+  width: 100%;
+  padding: 25px 0;
+  font-family: 'Inconsolata', monospace;
+  text-align: center;
+  border-top: 1px solid #cecece;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #000;
+}
+
 .black {
   background-color: #000;
 }
@@ -199,5 +216,10 @@ https://codepen.io/AngelaVelasquez/pen/Eypnq
 @media (max-width: 920px) {
   body {
     font-size: 14px;
+  }
+
+  .default, .random, .rainbow {
+    padding: 0.4em 0.7em;
+    margin-right: 0.4em;
   }
 }
