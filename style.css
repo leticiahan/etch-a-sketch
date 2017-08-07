@@ -106,21 +106,31 @@ input[name=choice] {
   padding: 1.3em 0.3em;
 }
 
+.screen {
+  width: 85%;
+  margin: 0 auto;
+  background-color: #F44336;
+  padding: 90px 0 120px;
+  border-radius: 2%;
+}
+
 .grid {
     width: 25em;
     height: 25em;
     margin: 0 auto;
+    /*background-color: #fff;*/
+    z-index: 99;
 }
 
 .row {
   display: flex;
   flex-direction: row;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  /*border-left: 1px solid black;
+  border-right: 1px solid black;*/
 }
 
 .row:first-child {
-  border-top: 1px solid black;
+  /*border-top: 1px solid black;*/
 }
 
 .square {
@@ -129,10 +139,31 @@ input[name=choice] {
     width: 6.25%;
     /* height: 6.25%; -- take the height css out from script.js */
     margin: 0;
+    background-color: #fff;
 }
 
 .square:last-child {
   border-right: none;
+}
+
+.row:last-child .square {
+  border-bottom: none;
+}
+
+.row:first-child .square:first-child {
+  border-top-left-radius: 50%;
+}
+
+.row:first-child .square:last-child {
+  border-top-right-radius: 50%;
+}
+
+.row:last-child .square:first-child {
+  border-bottom-left-radius: 50%;
+}
+
+.row:last-child .square:last-child {
+  border-bottom-right-radius: 50%;
 }
 
 .black {
