@@ -3,31 +3,33 @@
 <head>
   <title>Etch-A-Sketch</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Fredericka+the+Great|Love+Ya+Like+A+Sister|Unkempt:400,700" rel="stylesheet">
 </head>
 <body>
   <div class="header">
-    <h1>Virtual Etch-A-Sketch</h1>
+    <h1>Etch-A-Sketch</h1>
   </div>
-  <div class="input">
+  <div class="clear">
     <button class="clear-btn">Clear</button>
   </div>
-  <div>
-    <form class="grid">
+  <div class="size">
+    <form>
       <label for="new-grid">Grid Size</label>
       <input type="text" placeholder="16" name="new-grid" />
-      <button class="new-grid-btn">Set</button>
+      <button class="size-btn">Set</button>
     </form>
   </div>
-  <div>
-    <form class="color">
-      <input type="radio" name="radio" value="black" checked/>
-      <input type="radio" name="radio" value="rainbow" />
+  <div class="colors">
+    <form>
+      <input type="radio" name="radio" value="black" checked/>Black<br />
+      <input type="radio" name="radio" value="rainbow" />Random<br />
       <input type="text" name="choice" placeholder="#d9534f" />
       <button class="set-color" name="set-color">Set My Own Color</button>
     </form>
   </div>
   <div class="grid">
   </div>
+  <!-- add footer -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="script.js"></script>
 </body>

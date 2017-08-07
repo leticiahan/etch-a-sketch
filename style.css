@@ -1,16 +1,65 @@
+/* TO DO :
+1. add red border around the grid
+2. add footer
+3. make the background of the grid different??
+4. make the buttons work
+5. add gradient to black
+6. make color selections as buttons
+*/
+
+
 * {
   margin: 0;
   padding: 0;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
     background: #fff;
     width: 100%;
+    /*color: #f1251a; */
+    font-family: 'Unkempt', cursive;
+    font-size: 1em;
+}
+
+button {
+  font-family: 'Unkempt', cursive;
+  font-size: 2em;
+  border-radius: 100%;
+  border: none;
+}
+
+.header {
+  font-family: 'Fredericka the Great', cursive;
+  text-align: center;
+  font-size: 28px;
+  color: #F3C65E;
+  margin-top: 1em;
+}
+
+.clear, .size, .colors {
+  width: 30%;
+  display: inline-block;
+}
+
+.clear-btn {
+  padding: 1em 0.6em; /*30px 16px*/
+}
+
+.grid {
+    width: 25em;
+    height: 25em;
+    margin: 0 auto;
 }
 
 .row {
   display: flex;
   flex-direction: row;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 }
 
 .row:first-child {
@@ -20,7 +69,8 @@ body {
 .square {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
-    width: calc(100% / 16);
+    width: 6.25%;
+    /* height: 6.25%; -- take the height css out from script.js */
     margin: 0;
 }
 
