@@ -3,14 +3,55 @@ $(document).ready(function() {
   var num = 16; //default
   createGrid(num);
 
+  var colorOption = 'black';
+
+  // color: black (w/ gradient)
+  $('.default').click(function() {
+    colorOption = 'black';
+    if(!$(this).hasClass(colorOption)){
+      $(this).addClass(colorOption);
+    }
+    emptyGrid();
+    createGrid(num);
+  });
+
+  // color: random
+  $('.random').click(function() {
+    setRandomColor();
+    colorOption = 'randomColor';  // need class for randomColor
+    if(!$(this).hasClass(colorOption)){
+      $(this).addClass(colorOption);
+    }
+    if($('.default').hasClass('black')){
+      $('.default').removeClass('black');
+    }
+    emptyGrid();
+    createGrid(num);
+  });
+
+  function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var k = 0; k < 6; k++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function setRandomColor() {
+  var hexColor = getRandomColor();
+  $(".randomColor").css({'background-color': hexColor});
+}
+
   // set grid size
   $('.set').click(function() {
     var x = parseInt($('#grid-value').val(), 10);
-    if(!$.isNumeric(x)) {
+    num = x;
+    if(!$.isNumeric(num)) {
       x = 16;
     }
     emptyGrid();
-    createGrid(x);
+    createGrid(num);
   });
 
   // empty grid
@@ -40,9 +81,9 @@ $(document).ready(function() {
       'height': $squareWidth + 'px'
     });
 
-    // hover effect with gradient (black)
+    // hover effect
     $('.square').hover(function() {
-        $(this).addClass('black');
+        $(this).addClass(colorOption);
         var count = parseInt($(this).data('count'), 10) + 1;
         $(this).data('count', count);
         var opacity = 0.1;
