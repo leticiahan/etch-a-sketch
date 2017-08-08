@@ -5,7 +5,7 @@ $(document).ready(function() {
   for (i = 0; i < 16; i++) {
     var row = '<div class="row">';
     for (j = 0; j < 16; j++) {
-      row += '<div class="square"></div>';
+      row += '<div class="square" data-count="0"></div>';
     }
     row += '</div>';
     $grid.append(row);
@@ -17,13 +17,18 @@ $(document).ready(function() {
     'height': $squareWidth + 'px'
   });
 
-  // create hover effect: color-black; adding gradient effect
-  $('.square').hover(function() {
-    $(this).addClass('black');
-    $(this).css({
-      'opacity': '0.1'
+  // hover effect with gradient (black)
+  $('.square').mouseover(function() {
+      $(this).addClass('black');
+      var count = parseInt($(this).data('count'), 10) + 1;
+      $(this).data('count', count);
+      var opacity = 0.1;
+      if($(this).data('count') <= 10) {
+      	$(this).css({
+        'opacity': opacity * $(this).data('count')
+        });
+      }
     });
-  });
 
 
 });

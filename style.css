@@ -16,7 +16,6 @@
 body {
     background: #fff;
     width: 100%;
-    /*color: #f1251a; */
     font-family: 'Unkempt', cursive;
     font-size: 16px;
 }
@@ -141,28 +140,25 @@ input[name=choice] {
     width: 25em;
     height: 25em;
     margin: 0 auto;
-    z-index: 99;
     display: inline-block;
-    padding-bottom: 120px;
+    margin-bottom: 120px;
+    background: #fff;
+    background-clip: content-box;
+    border-radius: 3%;
 }
 
 .row {
   display: flex;
   flex-direction: row;
-  /*border-left: 1px solid black;
-  border-right: 1px solid black;*/
 }
 
-.row:first-child {
-  /*border-top: 1px solid black;*/
-}
 
 .square {
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    /*border-right: 1px solid black;
+    border-bottom: 1px solid black;*/
     width: 6.25%;
     margin: 0;
-    background-color: #fff;
+    border: 1px solid #ccc;
 }
 
 .square:last-child {
