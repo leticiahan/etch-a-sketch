@@ -3,6 +3,21 @@ $(document).ready(function() {
   var num = 16; //default
   createGrid(num);
 
+  // set grid size
+  $('.set').click(function() {
+    var x = parseInt($('#grid-value').val(), 10);
+    if(!$.isNumeric(x)) {
+      x = 16;
+    }
+    emptyGrid();
+    createGrid(x);
+  });
+
+  // empty grid
+  function emptyGrid() {
+    $('.grid').replaceWith('<div class="grid"></div>');
+  }
+
   // create grid (16x16)
   function createGrid(num) {
     var $grid = $('.grid');
@@ -16,9 +31,6 @@ $(document).ready(function() {
     }
 
     // make height=width
-  /*  $('.square').css({
-      'width': $('.row').width() / num + '%'
-    });*/
     var $rowWidth = $('.row').width();
     console.log($rowWidth);
     var $squareWidth = $rowWidth / num;
@@ -27,10 +39,6 @@ $(document).ready(function() {
       'width': $squareWidth + 'px',
       'height': $squareWidth + 'px'
     });
-    /*var $squareWidth = $('.square').width();
-    $('.square').css({
-      'height': $squareWidth + 'px'
-    });*/
 
     // hover effect with gradient (black)
     $('.square').hover(function() {
@@ -44,16 +52,11 @@ $(document).ready(function() {
           });
         }
       });
-
   };
 
   // clear button
   $('.clear').click(function() {
-    $('.grid').replaceWith('<div class="grid"></div>');
+    emptyGrid();
     createGrid(num);
   });
-
-
-
-
 });

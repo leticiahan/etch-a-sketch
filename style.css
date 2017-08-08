@@ -72,6 +72,13 @@ label {
 
 .set {
   padding: 1em;
+  font-family: 'Unkempt', cursive;
+  font-size: 1.7em;
+  background-color: #fff;
+}
+
+.set:focus {
+  outline: none;
 }
 
 
