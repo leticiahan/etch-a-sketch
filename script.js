@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   // create grid (16x16)
   var $grid = $('.grid');
   for (i = 0; i < 16; i++) {
@@ -9,15 +10,20 @@ $(document).ready(function() {
     row += '</div>';
     $grid.append(row);
   }
+
   // make height=width
   var $squareWidth = $('.square').width();
   $('.square').css({
     'height': $squareWidth + 'px'
   });
 
-  // create hover effect: color-black;
+  // create hover effect: color-black; adding gradient effect
   $('.square').hover(function() {
     $(this).addClass('black');
-  })
+    $(this).css({
+      'opacity': '0.1'
+    });
+  });
+
 
 });

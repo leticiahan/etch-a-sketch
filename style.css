@@ -141,7 +141,6 @@ input[name=choice] {
     width: 25em;
     height: 25em;
     margin: 0 auto;
-    /*background-color: #fff;*/
     z-index: 99;
     display: inline-block;
     padding-bottom: 120px;
@@ -162,7 +161,6 @@ input[name=choice] {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     width: 6.25%;
-    /* height: 6.25%; -- take the height css out from script.js */
     margin: 0;
     background-color: #fff;
 }
