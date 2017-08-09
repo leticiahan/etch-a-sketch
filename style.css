@@ -213,6 +213,10 @@ input[name=choice] {
   color: #fff;
 }
 
+.white {
+  background-color: #fff;
+  border: 1px solid #000;
+}
 
 /* -- for styling radio buttons --
 https://codepen.io/AngelaVelasquez/pen/Eypnq

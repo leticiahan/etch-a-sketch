@@ -11,8 +11,16 @@ $(document).ready(function() {
     if(!$(this).hasClass(colorOption)){
       $(this).addClass(colorOption);
     }
-    emptyGrid();
-    createGrid(num);
+    //emptyGrid();
+    //createGrid(num);
+    $('.random').css({
+      'background-color': '#fff',
+      'border': 1 + 'px solid #000'
+    });
+    $('.rainbow').css({
+      'background-color': '#fff',
+      'border': 1 + 'px solid #000'
+    });
   });
 
   // color: random
@@ -21,15 +29,43 @@ $(document).ready(function() {
     if($('.default').hasClass('black')){
       $('.default').removeClass('black');
     }
+    $('.rainbow').css({
+      'background-color': '#fff',
+      'border': 1 + 'px solid #000'
+    });
     colorOption = 'randomColor';
     randomSquareColor = setRandomColor();
     $(this).css({
       'background-color': randomSquareColor,
-      'border': 1 + 'px' + ' solid ' + randomSquareColor
+      'border': 1 + 'px solid ' + randomSquareColor
     });
-    emptyGrid();
-    createGrid(num);
+    //emptyGrid();
+    //createGrid(num);
   });
+
+  // color: rainbow
+  var rainbowArray = ['C263A2', 'EC689F', 'F68A45', 'F6D55C',
+                      'C4D561', '73C173', '3D9CA6', '71C4D2'];
+  $('.rainbow').click(function() {
+    colorOption = 'rainbowColor';
+    if($('.default').hasClass('black')){
+      $('.default').removeClass('black');
+    }
+    $('.random').css({
+      'background-color': '#fff',
+      'border': 1 + 'px' + ' solid #000'
+    });
+    $(this).css({
+      'background-color': getRainbow(),
+      'border': 1 + 'px' + ' solid ' + getRainbow()
+    });
+  });
+
+  function getRainbow() {
+    var randomRainbow = '#' +
+      rainbowArray[Math.floor(Math.random() * rainbowArray.length)];
+    return randomRainbow;
+  }
 
   function getRandomColor() {
   var letters = '0123456789ABCDEF';
@@ -42,7 +78,6 @@ $(document).ready(function() {
 
 function setRandomColor() {
   var hexColor = getRandomColor();
-  /*$(".randomColor").css({'background-color': hexColor});*/
   return hexColor;
 }
 
@@ -93,6 +128,11 @@ function setRandomColor() {
           $(this).css({
             'background-color': randomSquareColor
           });
+        }
+        if($(this).hasClass('rainbowColor')) {
+          $(this).css({
+            'background-color': getRainbow()
+          })
         }
         var opacity = 0.1;
         if($(this).data('count') <= 10) {
