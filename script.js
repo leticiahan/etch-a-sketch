@@ -16,15 +16,17 @@ $(document).ready(function() {
   });
 
   // color: random
+  var randomSquareColor;
   $('.random').click(function() {
-    setRandomColor();
-    colorOption = 'randomColor';  // need class for randomColor
-    if(!$(this).hasClass(colorOption)){
-      $(this).addClass(colorOption);
-    }
     if($('.default').hasClass('black')){
       $('.default').removeClass('black');
     }
+    colorOption = 'randomColor';
+    randomSquareColor = setRandomColor();
+    $(this).css({
+      'background-color': randomSquareColor,
+      'border': 1 + 'px' + ' solid ' + randomSquareColor
+    });
     emptyGrid();
     createGrid(num);
   });
@@ -40,7 +42,8 @@ $(document).ready(function() {
 
 function setRandomColor() {
   var hexColor = getRandomColor();
-  $(".randomColor").css({'background-color': hexColor});
+  /*$(".randomColor").css({'background-color': hexColor});*/
+  return hexColor;
 }
 
   // set grid size
@@ -86,6 +89,11 @@ function setRandomColor() {
         $(this).addClass(colorOption);
         var count = parseInt($(this).data('count'), 10) + 1;
         $(this).data('count', count);
+        if($(this).hasClass('randomColor')) {
+          $(this).css({
+            'background-color': randomSquareColor
+          });
+        }
         var opacity = 0.1;
         if($(this).data('count') <= 10) {
         	$(this).css({
