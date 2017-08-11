@@ -1,23 +1,35 @@
 $(document).ready(function() {
 
+  // input placeholders disappear on focus
+  $(function(){
+    $('#custom-color').data('holder', $('#custom-color').attr('placeholder'));
+    $('#custom-color').focusin(function(){
+      $(this).attr('placeholder', '');
+    });
+    $('#custom-color').focusout(function(){
+      $(this).attr('placeholder', $(this).data('holder'));
+    });
+    $('#grid-value').data('holder', $('#grid-value').attr('placeholder'));
+    $('#grid-value').focusin(function(){
+      $(this).attr('placeholder', '');
+    });
+    $('#grid-value').focusout(function(){
+      $(this).attr('placeholder', $(this).data('holder'));
+    });
+  });
+
   var num = 16; //default
   createGrid(num);
 
-  var colorOption = 'black';
+  var colorOption = 'black'; //default
 
-  // color: black (w/ gradient)
+  // color: black (w/ gradient) -- fix: don't add class
   $('.default').click(function() {
     colorOption = 'black';
     if(!$(this).hasClass(colorOption)){
       $(this).addClass(colorOption);
     }
-    //emptyGrid();
-    //createGrid(num);
-    $('.random').css({
-      'background-color': '#fff',
-      'border': 1 + 'px solid #000'
-    });
-    $('.rainbow').css({
+    $('.random', '.rainbow', '.set-color').css({
       'background-color': '#fff',
       'border': 1 + 'px solid #000'
     });
@@ -61,10 +73,49 @@ $(document).ready(function() {
     });
   });
 
-  function getRainbow() {
-    var randomRainbow = '#' +
-      rainbowArray[Math.floor(Math.random() * rainbowArray.length)];
-    return randomRainbow;
+  // color: customization
+  /* to do:
+  6. button changes the square color
+  */
+  var customColor = 'black';
+  $('#custom-color').keyup(changeFontColor);
+  $("#customize").click(function(){
+	var names = ["aliceblue", "antiquewhite", "aqua", "aquamarine", "azure", "beige", "bisque", "black", "blanchedalmond", "blue", "blueviolet", "brown", "burlywood", "cadetblue", "chartreuse", "chocolate", "coral", "cornflowerblue", "cornsilk", "crimson", "cyan", "darkblue", "darkcyan", "darkgoldenrod", "darkgray", "darkgrey", "darkgreen", "darkkhaki", "darkmagenta", "darkolivegreen", "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", "darkslateblue", "darkslategray", "darkslategrey", "darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgray", "dimgrey", "dodgerblue", "firebrick", "floralwhite", "forestgreen", "fuchsia", "gainsboro", "ghostwhite", "gold", "goldenrod", "gray", "grey", "green", "greenyellow", "honeydew", "hotpink", "indianred", "indigo", "ivory", "khaki", "lavender", "lavenderblush", "lawngreen", "lemonchiffon", "lightblue", "lightcoral", "lightcyan", "lightgoldenrodyellow", "lightgray", "lightgrey", "lightgreen", "lightpink", "lightsalmon", "lightseagreen", "lightskyblue", "lightslategray", "lightslategrey", "lightsteelblue", "lightyellow", "lime", "limegreen", "linen", "magenta", "maroon", "mediumaquamarine", "mediumblue", "mediumorchid", "mediumpurple", "mediumseagreen", "mediumslateblue", "mediumspringgreen", "mediumturquoise", "mediumvioletred", "midnightblue", "mintcream", "mistyrose", "moccasin", "navajowhite", "navy", "oldlace", "olive", "olivedrab", "orange", "orangered", "orchid", "palegoldenrod", "palegreen", "paleturquoise", "palevioletred", "papayawhip", "peachpuff", "peru", "pink", "plum", "powderblue", "purple", "red", "rosybrown", "royalblue", "saddlebrown", "salmon", "sandybrown", "seagreen", "seashell", "sienna", "silver", "skyblue", "slateblue", "slategray", "slategrey", "snow", "springgreen", "steelblue", "tan", "teal", "thistle", "tomato", "turquoise", "violet", "wheat", "white", "whitesmoke", "yellow", "yellowgreen"];
+	var color = $('#custom-color').val().trim();
+  var formattedColor = color.replace(/([a-z])([A-Z])/g, '$1$2').toLowerCase();
+  var rxValidHex = /^#(?:[0-9a-f]{3}){1,2}$/i
+  if(rxValidHex.test(color) || jQuery.inArray(formattedColor, names) !== -1){
+    colorOption = 'custom';
+    customColor = color;
+    if($('.default').hasClass('black')){
+      $('.default').removeClass('black');
+    }
+    $('.random').css({
+      'background-color': '#fff',
+      'border': '1px solid #000'
+    });
+    $('.rainbow').css({
+      'background-color': '#fff',
+      'border': '1px solid #000'
+    })
+    $(this).css({
+      'background-color': color,
+      'border': '1px solid ' + color
+    });
+  } else {
+    $('#custom-color').css('border-bottom', '2px solid red');
+  	$('#custom-color').effect('shake', {distance: 30, times: 5}, 3000);
+
+  }
+});
+
+  function changeFontColor() {
+    var color = $('#custom-color').val().trim();
+    $('#custom-color').css('color', color);
+    $('#customize').css({
+      'background-color': color,
+  	  'border': '1px solid ' + color
+    });
   }
 
   function getRandomColor() {
@@ -79,6 +130,12 @@ $(document).ready(function() {
 function setRandomColor() {
   var hexColor = getRandomColor();
   return hexColor;
+}
+
+function getRainbow() {
+  var randomRainbow = '#' +
+    rainbowArray[Math.floor(Math.random() * rainbowArray.length)];
+  return randomRainbow;
 }
 
   // set grid size
@@ -132,7 +189,12 @@ function setRandomColor() {
         if($(this).hasClass('rainbowColor')) {
           $(this).css({
             'background-color': getRainbow()
-          })
+          });
+        }
+        if($(this).hasClass('custom')) {
+          $(this).css({
+            'background-color': customColor
+          });
         }
         var opacity = 0.1;
         if($(this).data('count') <= 10) {
